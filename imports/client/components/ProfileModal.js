@@ -7,7 +7,10 @@ export default class ProfileModal extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <h1>El Usuario</h1>
+        <img src="/public/images/coco.jpg" alt="coco" />
+      </div>
     );
   }
 }
