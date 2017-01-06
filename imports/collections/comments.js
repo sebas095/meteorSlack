@@ -4,6 +4,12 @@ import { check } from 'meteor/check';
 
 export const CommentsCollection = new Mongo.Collection('comments');
 
+if (Meteor.isServer) {
+  Meteor.publish('comments', function publishComments() {
+    return CommentsCollection.find({});
+  });
+}
+
 Meteor.methods({
   'comments.insert'(comment) {
     check(comment, String);

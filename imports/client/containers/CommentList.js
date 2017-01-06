@@ -51,6 +51,8 @@ CommentList.propTypes = {
 };
 
 export default createContainer(() => {
+  Meteor.subscribe('comments');
+
   return {
     comments: CommentsCollection.find({}).fetch(),
     currentUser: Meteor.user()
