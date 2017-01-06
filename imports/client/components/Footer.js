@@ -7,7 +7,11 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <form>
+          <input ref="inputMessage" type="text" />
+        </form>
+      </div>
     );
   }
 }
