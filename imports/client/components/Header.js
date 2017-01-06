@@ -7,7 +7,11 @@ export default class Header extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <div>
+          <h1>Usuario</h1>
+        </div>
+      </div>
     );
   }
 }
