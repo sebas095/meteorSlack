@@ -5,7 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import Comment from '../components/Comment';
 import AccountsUIWrapper from '../components/AccountsUIWrapper';
-import CommentCollection from '../../collections/comments';
+import { CommentsCollection } from '../../collections/comments';
 
 class CommentList extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class CommentList extends Component {
   handleSubmit(ev) {
     ev.preventDefault();
     const comment = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-    CommentCollection.insert({comment});
+    CommentsCollection.insert({comment});
   }
 
   render() {
@@ -51,7 +51,7 @@ CommentList.propTypes = {
 
 export default createContainer(() => {
   return {
-    comments: CommentCollection.find({}).fetch(),
+    comments: CommentsCollection.find({}).fetch(),
     currentUser: Meteor.user()
   }
 }, CommentList);
