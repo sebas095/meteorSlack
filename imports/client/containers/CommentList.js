@@ -5,6 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import Comment from '../components/Comment';
 import AccountsUIWrapper from '../components/AccountsUIWrapper';
+
 import { CommentsCollection } from '../../collections/comments';
 
 class CommentList extends Component {
@@ -15,7 +16,7 @@ class CommentList extends Component {
   handleSubmit(ev) {
     ev.preventDefault();
     const comment = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-    CommentsCollection.insert({comment});
+    Meteor.call('comments.insert', comment);
   }
 
   render() {
