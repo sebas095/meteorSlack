@@ -9,7 +9,7 @@ export default class Channel extends Component {
     return (
       <a>
         <span>#</span>
-        <span>Canal</span>
+        <span>{this.props.name}</span>
       </a>
     );
   }
