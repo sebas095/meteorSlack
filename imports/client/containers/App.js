@@ -9,6 +9,9 @@ import Listings from '../components/Listings';
 import Messages from '../components/Messages';
 import ProfileModal from '../components/ProfileModal';
 
+import { MessagesCollection } from '../../collections/messages';
+import { ChannelsCollection } from '../../collections/channels';
+
 class App extends Component {
   constructor() {
     super();
@@ -28,9 +31,12 @@ App.propTypes = {
 };
 
 export default createContainer(() => {
+  Meteor.subscribe('messages');
+  Meteor.subscribe('channels');
+
   return {
-    messages: [],
-    channels: [],
+    messages: MessagesCollection.find({}).fetch(),
+    channels: ChannelsCollection.find({}).fetch(),
     currentUser: Meteor.user()
   }
 }, App);
