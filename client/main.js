@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 
 import '../imports/startup/accounts-ui';
-import CommentList from '../imports/client/containers/CommentList';
+import App from '../imports/client/containers/App';
 
 Meteor.startup(() => {
   const base = document.getElementById('container');
-  ReactDOM.render(<CommentList />, base);
+  ReactDOM.render(<App />, base);
 });
