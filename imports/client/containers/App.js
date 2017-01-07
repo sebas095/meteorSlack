@@ -51,7 +51,7 @@ class App extends Component {
     }
 
     return (
-      <div>
+      <div className='ui container'>
         <AccountUIWrapper />
         {content}
       </div>
