@@ -52,19 +52,17 @@ class App extends Component {
     if (this.props.currentUser) {
       content = (
         <div>
-          <div className='column'>
+          <div className='ui segment'>
             <Header onModalClick={this.showModal.bind(this)} user={this.props.currentUser.username} />
           </div>
-          <div className='column'>
-            <div className='ui container'>
-              <Messages messages={this.props.messages} />
-              <Listings
-                onCreateChannel={this.createChannel.bind(this)}
-                onChangeChannel={this.changeChannel.bind(this)}
-                channels={this.props.channels} />
-            </div>
+          <div className='ui segment'>
+            <Messages messages={this.props.messages} />
+            <Listings
+              onCreateChannel={this.createChannel.bind(this)}
+              onChangeChannel={this.changeChannel.bind(this)}
+              channels={this.props.channels} />
           </div>
-          <div className='column'>
+          <div className='ui segment'>
             <Footer onSendMessage={this.sendMessage.bind(this)} />
           </div>
           <ProfileModal
@@ -76,8 +74,8 @@ class App extends Component {
     }
 
     return (
-      <div className='ui one column grid container'>
-        <div className='column'>
+      <div className='ui segments'>
+        <div className='ui segment'>
           <AccountUIWrapper />
         </div>
         {content}

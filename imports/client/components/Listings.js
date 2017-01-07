@@ -25,10 +25,16 @@ export default class Listings extends Component {
       );
     });
 
+    const padding = {
+      padding: '2%'
+    }
+
     return (
-      <div className='ui bottom attached tabular menu'>
-        {channels}
-        <div className='right menu'>
+      <div>
+        <div className='channels__channel-list ui bottom attached tabular menu'>
+          {channels}
+        </div>
+        <div style={padding} className='right menu'>
           <form className='ui form' onSubmit={this.handleSubmit.bind(this)}>
             <input ref="inputChannel" type="text" placeholder="nuevo canal" />
           </form>

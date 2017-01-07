@@ -39,13 +39,34 @@ export default class ProfileModal extends Component {
 
     return (
       <div ref='userModal' className='ui modal'>
-        <h1>{this.props.user}</h1>
-        <img ref='imageView' src={url_photo} alt={url_photo} />
-        <input
-          onChange={this.handleChange.bind(this)}
-          type='file'
-          ref='pic'
-          accept='image/x-png'/>
+        <i className='close icon'></i>
+        <div className='header'>
+          <h1>{this.props.user}</h1>
+        </div>
+        <div className='image content'>
+          <div className='ui medium image'>
+            <img ref='imageView' src={url_photo} alt={url_photo} />
+          </div>
+          <div className='description'>
+            <div className='ui header'>
+              Foto de Perfil
+            </div>
+            <p>
+              Puedes cambiar tu foto de perfil, en el enlace de abajo
+              esta se actualizara al cambio...
+              <i class=""></i>
+            </p>
+            <form className='ui form'>
+              <div className='field'>
+                <input
+                  onChange={this.handleChange.bind(this)}
+                  type='file'
+                  ref='pic'
+                  accept='image/x-png'/>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
