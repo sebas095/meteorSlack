@@ -33,9 +33,18 @@ class App extends Component {
     Session.set('channel', channel);
   }
 
+  insertImage(info, data) {
+    Meteor.call('cloudinary.insert', info, data, (err, res) => {
+      if (err) {
+        console.log(err);
+      }
+      Meteor.call('message.update', res.url);
+    });
+  }
+
   showModal() {
     const userModal = ReactDOM.findDOMNode(this.refs.modalIgnite);
-    $(userModal).modal('show'); 
+    $(userModal).modal('show');
   }
 
   render() {
@@ -58,7 +67,10 @@ class App extends Component {
           <div className='column'>
             <Footer onSendMessage={this.sendMessage.bind(this)} />
           </div>
-          <ProfileModal ref='modalIgnite' user={this.props.currentUser.username} />
+          <ProfileModal
+            onInsertImage={this.insertImage.bind(this)}
+            ref='modalIgnite'
+            user={this.props.currentUser.username} />
         </div>
       );
     }
