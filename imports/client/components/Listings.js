@@ -29,7 +29,7 @@ export default class Listings extends Component {
       <div className='ui bottom attached tabular menu'>
         {channels}
         <div className='right menu'>
-          <form onSubmit={this.handleSubmit.bind(this)}>
+          <form className='ui form' onSubmit={this.handleSubmit.bind(this)}>
             <input ref="inputChannel" type="text" placeholder="nuevo canal" />
           </form>
         </div>

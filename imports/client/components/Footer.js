@@ -16,8 +16,11 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input ref="inputMessage" type="text" />
+        <form className='ui form' onSubmit={this.handleSubmit.bind(this)}>
+          <div className='ui huge icon input'>
+            <input ref="inputMessage" placeholder='Enviar mensaje...' type="text" />
+            <i className='send outline icon'></i>
+          </div>
         </form>
       </div>
     );
