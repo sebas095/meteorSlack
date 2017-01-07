@@ -15,7 +15,7 @@ export default class Messages extends Component {
     });
 
     return (
-      <div>
+      <div className='ui top attached segment'>
         {messages}
       </div>
     );

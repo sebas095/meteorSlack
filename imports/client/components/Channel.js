@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Session } from 'meteor/session';
+import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 
 export default class Channel extends Component {
@@ -12,8 +14,13 @@ export default class Channel extends Component {
   }
 
   render() {
+    const styleItem = classNames({
+      'item': true,
+      'active': Session.get('channel') === this.props.name
+    });
+
     return (
-      <a onClick={this.handleClick.bind(this)}>
+      <a className={styleItem} onClick={this.handleClick.bind(this)}>
         <span>#</span>
         <span ref='inputChannel'>{this.props.name}</span>
       </a>
