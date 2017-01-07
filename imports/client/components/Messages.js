@@ -8,16 +8,15 @@ export default class Messages extends Component {
   }
 
   render() {
-    const message = {
-      user: 'El usuario',
-      message: 'El Mensaje'
-    };
+    const messages = this.props.messages.map((message) => {
+      return (
+        <Message key={message._id} {...message} />
+      );
+    });
 
     return (
       <div>
-        <Message {...message} />
-        <Message {...message} />
-        <Message {...message} />
+        {messages}
       </div>
     );
   }
