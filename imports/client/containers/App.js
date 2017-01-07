@@ -39,10 +39,10 @@ class App extends Component {
       content = (
         <div>
           <div className='column'>
-            <Header />
+            <Header user={this.props.currentUser.username} />
           </div>
           <div className='column'>
-            <div className='ui twelve column container'>
+            <div className='ui container'>
               <Messages messages={this.props.messages} />
               <Listings
                 onCreateChannel={this.createChannel.bind(this)}
@@ -59,8 +59,10 @@ class App extends Component {
     }
 
     return (
-      <div className='ui grid container'>
-        <AccountUIWrapper />
+      <div className='ui one column grid container'>
+        <div className='column'>
+          <AccountUIWrapper />
+        </div>
         {content}
       </div>
     );
