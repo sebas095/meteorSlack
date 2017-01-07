@@ -38,22 +38,28 @@ class App extends Component {
     if (this.props.currentUser) {
       content = (
         <div>
-          <Header />
-          <div className='ui container'>
-            <Messages messages={this.props.messages} />
-            <Listings
-              onCreateChannel={this.createChannel.bind(this)}
-              onChangeChannel={this.changeChannel.bind(this)}
-              channels={this.props.channels} />
+          <div className='column'>
+            <Header />
           </div>
-          <Footer onSendMessage={this.sendMessage.bind(this)} />
+          <div className='column'>
+            <div className='ui twelve column container'>
+              <Messages messages={this.props.messages} />
+              <Listings
+                onCreateChannel={this.createChannel.bind(this)}
+                onChangeChannel={this.changeChannel.bind(this)}
+                channels={this.props.channels} />
+            </div>
+          </div>
+          <div className='column'>
+            <Footer onSendMessage={this.sendMessage.bind(this)} />
+          </div>
           <ProfileModal />
         </div>
       );
     }
 
     return (
-      <div className='ui container'>
+      <div className='ui grid container'>
         <AccountUIWrapper />
         {content}
       </div>
