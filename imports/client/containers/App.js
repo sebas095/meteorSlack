@@ -33,13 +33,18 @@ class App extends Component {
     Session.set('channel', channel);
   }
 
+  showModal() {
+    const userModal = ReactDOM.findDOMNode(this.refs.modalIgnite);
+    $(userModal).modal('show'); 
+  }
+
   render() {
     let content = '';
     if (this.props.currentUser) {
       content = (
         <div>
           <div className='column'>
-            <Header user={this.props.currentUser.username} />
+            <Header onModalClick={this.showModal.bind(this)} user={this.props.currentUser.username} />
           </div>
           <div className='column'>
             <div className='ui container'>
@@ -53,7 +58,7 @@ class App extends Component {
           <div className='column'>
             <Footer onSendMessage={this.sendMessage.bind(this)} />
           </div>
-          <ProfileModal />
+          <ProfileModal ref='modalIgnite' user={this.props.currentUser.username} />
         </div>
       );
     }
